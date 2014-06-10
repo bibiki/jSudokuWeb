@@ -1,0 +1,189 @@
+Ndertimi i zgjidhesit te Sudoku.
+
+Objektet ne sudoku:
+	1. Qelulat
+		Nje qelule eshte kutia me e vogel ne sudoku. pra, ajo ku futet nje numer.
+	2. Rreshtat e shkurte
+		Nje rresht i shkurte eshte nje bashkesi prej tri qelulash te vendosura
+		nje pas nje ne menyre horizontale. Qelula e pare ne nje rresht te shkurte
+		duhet te jete e para, e katerta, ose e shtata ne nje rresht te matrices
+		9X9 te Sudoku.
+	3. Kolonat e Shkurta
+		Nje kolone e shkurte eshte nje bashkesi prej tri qelulash te vendosura ne
+		ne menyre vertikale. Qelula e pare ne nje kolone te shkurte duhet te jete
+		e para, e katerta, apo e shtata ne nje kolone.
+	4. Kutite e mesme (Meds, Medat, Medi)
+		Nje kuti e mesme eshte nje matrice 3X3 brenda matrices 9X9 te Sudoku. Qelula
+		e pare e nje kutie te mesme duhet te jete qelula 1,1 ose 4,1 ose 7,1 ose
+		4,1 ose 4,4 ose 4,7 ose 7,1 ose 7,4 ose 7,7 brenda Sudokus.
+	5. Rreshtat
+		Secili rresht ne matricen e Sudoku
+	6. Kolonat
+		Secila kolone ne matricen e Sudoku
+	7. Vete Sudoku
+
+Gjate ndertimit te ketij aplikacioni, keta objekte jane emertuar ne anglisht.
+
+Kujtojme qe, ne rastin e pergjithshem, Sudoku eshte i zgjidhur kur secila qelule ka nga nje
+numer ne te. Ne me shume detaje, asnje rresht, kolone, apo kuti e mesme nuk guxon te kete
+nje numer ne dy qelula te ndryshme te vetat.
+
+Gjithsej jane dy menyra te percaktimit se cili numer duhet te vendoset ne nje qelule te caktuar:
+	1. Nese mundesite (nje arrayliste) brenda nje qelule permbajne saktesisht nje numer,
+		atehere ai numer duhet te jete ne ate qelule.
+	2. Nese, brenda nje rreshti, kolone, apo kutie te mesme, ekziston vetem nje qelule
+		qe guxon te permbaje nje numer te caktuar, atehere ai numer duhet te jete ne
+		ate qelule.
+Shpjegim.
+	Me rastin e startimit te nje sudoku sesioni, ne ate moment kur secila qelule eshte
+	e zbrazet, secila qelule mund te permbaje cilindo numer nga nje deri ne nente.
+	Porsa te caktojme numrin qe nje qelule e permbane, atehere ky numer largohet nga
+	mundesite brenda qelulave ne te njejtin rresht, kolone, apo kuti te mesme me kete qelule
+	ne fjale. Duke vazhdu me caktimin e numrave qe gjenden ne qelula te ndryshme, numri
+	i mundesive neper qelula per te cilat nuk dihet se cfare numri permbajne vazhdon te
+	reduktohet. Ne ate moment qe numri i mundesive mbetet saktesisht nje per nje qelule,
+	atehere konkludohet qe pikerisht ai numer duhet te vendoset ne ate qelule.
+
+	Ne anen tjeter, secili numer duhet te jete saktesisht nje here ne nje rresht, kolone,
+	apo kuti te mesme.
+
+	Per te thjeshtu shpjegimin, po marrim shembullin e numrit 2 dhe rreshtit te pare. Tashme
+	e percaktuam qe 2-shi mund te jete ne cilendo nga 9 qelulat ne rreshtin e pare. por,
+	po supozojme se ne kutine e mesme te pare, pjese te se ciles jane tre qelulat e para,
+	te rreshtit te pare, po vendoset dyshi ne cilendo nga qelulat e kesaj kutie jasht atyre
+	tri qelulave qe i perkasin rreshtit te pare. Ne ate rast, numri dy ne rreshtin e pare,
+	gjendet ne gjashte qelulat me indexe 1, 4 deri 1, 9. Duke vazhduar me vendosjen e dyshit, neper
+	qelulat e tjera neper kutite e tjera te mesme arijme ne nje pike ku nje qelule e vetme brenda
+	rreshtit te pare mund ta permbaje dyshin, dhe ne kete rast perfundojme se dyshi, brenda rreshtit
+	te pare eshte pikerisht ne ate qelule. Njejte vlene edhe per kolona dhe kuti te mesme.
+
+Tash qe e percaktuam menyren e vendimmarrjes per vendosjen e nje numri ne nje qelule, teresia
+e asaj qe mbetet te kryhet per te zgjidhj nje Sudoku eshte eliminimi i numrave nga mundesite
+e qelulave.
+
+Per te kryer eliminimin e mundesive jane vijuar metodat ne vijim:
+	1. Me rastin e vendosjes se nje numri ne nje qelule, mundesite e kesaj qelule jane
+		fshire teresisht.
+	2. Me rastin e klikimit te butonit 'Pastroji rreshtat' lexohet secila qelule ne Sudoku.
+		Nese nje qelule permbane numer, atehere ai numer largohet nga mundesite e seciles
+		qelule ne ate rresht.
+		Me rastin e eliminimit te numrave nga mundesite e nje qelule kryhet verifikimi
+		nese numri i mundesive eshte i limituar ne nje. Nese po, ai numer vendoset
+		si 'fytyre' e asaj qelule.
+	3. Me rastin e klikimit te butonit 'Pastroji kolonat' lexohet secila qelule ne Sudoku.
+		Ne menyre te njejte si per 'Pastroji rreshtat', vazhdohet me eliminime te
+		mundesive, verifikim nese mundesite jane te limitume ne nje numer te njejte.
+	4. Me rastin e klikimit te butonit 'Pastroji medat' behet leximi i seciles qelule ne Sudoku.
+		Ne menyre te njejte si per keto me siper, vlera e seciles qelule largohet nga
+		mundesite e qelulave qe i perkasin te njejtave kutia te mesme sikur qelula ne fjale.
+
+Kjo pra eshte pjesa e pare e algoritmit te zgjidhjes.
+Pjesa e dyte vazhdon keshtu:
+	Shqyrtohet secili numer ne secilin rresht, kolone, kuti te mesme.
+	1. Nisim me numrin 1
+	2. Shqyrtojme numrin ndaj secilit rresht.
+	3. Nese brenda nje rreshti ekziston vetem nje qelule qe permbane 1-shin ne mundesite
+		e veta, atehere 1-shi brenda ketij rreshti gjindet pikerisht ne ate qelule.
+	4. Vzhdon keshtu per secilin numer deri ne 9.
+	1000. E njejta pune behet per secilin numer ndaj seciles kolone, dhe ndaj seciles
+	kuti te mesme.
+		Per te bere kete shqyrtim 'numrash ndaj rreshtave' shfrytezohet butoni Rresht-numer.
+		Per te bere kete shqyrtim 'numrash ndaj kolonave' shfrytezohet butoni Kolone-numer.
+		Per te bere kete shqyrtim 'numrash ndaj kutive te mesme' shfrytezohet butoni Medi-numer.
+
+Teresia e funksioneve te mesiperme eshte relativisht e fuqishme ne zgidhjen e sudokuve. Sidoqofte,
+eshte nje numer i madh Sudokush qe mund te zgjidhen pa spekuluar lidhur me permbajtjen e nje qelule,
+dhe te cilat kjo teresi nuk i zgjidh. Raste te tilla jane ato ku ne e dijme qe nje numer, brenda nje
+kutie te mesme gjindet ne njeren nga dy-tri qelulat te vendosura ne nje rresht te shkurte, apo kolone
+te shkurte, brenda kutise se mesme, por nuk e dijm se pikerisht ne cilen qelule.
+
+Ne keto raste, fakti qe nje numer eshte brenda dy-tri qelulave ne nje rresht te shkurte (apo kolone
+te shkurte) brenda nje kutie te mesme, nuk na tregon se pikerisht ku brenda asaj kutie te mesme
+ky numer gjindet, por na ndihmon te reduktojme numrin e mundesive te qelulave qe jane ne te njejtin
+rresht (kolone) me kete rresht te shkurte (kolone te shkurte), por ne kutite e mesme ne renditje
+horizontale (vertikale) me kutine e mesme ne fjale. Sa per ilustrim, shih sa vijon:
+
+resht i shkurt	     |resht i shkurt   	  |resht i shkurt      |
+
+ ------ ------ ------ ------ ------ ------ ------ ------ ------
+| dyshi diku ketu    |  2-sh ketu ska     | 2-sh ketu s'ka     |
+ ------ ------ ------ ------ ------ ------ ------ ------ ------
+|      |      |      |      |      |      |      |      |      |
+ ------ ------ ------ ------ ------ ------ ------ ------ ------
+|      |      |      |      |      |      |      |      |      |
+ ------ ------ ------ ------ ------ ------ ------ ------ ------
+
+Njejte vlene edhe per kolona pra.
+
+Tani, me inkorporimin e kesajpjese, ky zgjidhes i sudokuve eshte shume me i fuqishem.
+
+Kjo pjese e kerkimit te vlerave te qelulave te sudokuve eshte bere keshtu:
+Kjartesimet:
+	k1. ajo cfare po kerkojme pra eshte: numra qe brenda nje kutie te mesme mund te vendosen ne
+		saktesisht nje rresht te shkurte, apo kolone te shkurte, brenda kesaj kutie te mesme.
+	k2. mundesite e nje rreshti te shkurte, kolone te shkurte, barazojne unionin e mundesive
+		te qelulave ne ate rresht te shkurte, kolone te shkurte.
+	k3. secila kuti e mesme i ka tre rreshta te shkurte perbrenda vetes, si dhe tri kolona te shkurta.
+
+Tani, vazhdon iterimi ne secilen kuti te mesme qe te percaktohet nese ka ndonje numer qe gjindet
+ne saktesisht nje rresht te shkurte, kolone te shkurte, brenda kesaj kuti.
+
+Per ta bere kete veprojme keshtu:
+Le te jete P1 ArrayList qe mbane mundesite e rreshtit te pare te shkurte brenda kutise se mesme.
+P2 mundesite per rreshtin e dyte te shkurte, dhe P3 per mundesite e rreshtit te dyte te shkurte
+brenda kutise se mesme.
+
+Tani, numrat qe mund te gjinden vetem ne njerin rresht te shkurte (kolone te shkurte) do te ruhen
+ne nje ArrayList brenda rreshtit te shkurte dhe do te referohen me emrin probabilet.
+
+Per te gjet probabilet e rreshtit te pare te shkurte veprojme keshtu:
+
+probabilet1 = P1\(P2 U P3) (ku \ eshte veprimi i diferences se bashkesive, dhe U veprimi i unionit te
+bashkesive)
+probabilet2 = P2\(P1 U P3)
+probabilet3 = P3\(P2 U P1)
+Teresia e ketyre veprimeve kryhet me butonin Gjeji probabilet.
+
+Pasi te jene gjete probabilet e nje rreshti te shkurte (kolone te shkurte), vlerat e ketyre probabileve
+duhet te hiqen nga mundesite e qelulave ne rreshtat e shkurte (kolonat e shkurta) qe i perkasin te njejtit
+rresht (kolone). per ta bere kete shfrytezojme butonat Rresht-probabil dhe Kolone-probabil.
+
+PERDORIMI I ZGJIDHESIT TE SUDOKUS
+
+Per perdorim te efektshem te ketij zgjidhesi duhet ndihme e njeriut ne renditjen e klikimit te butonave.
+	PASI TE JENE FUTUR VLERAT QE E PERCAKTOJNE NJE SFIDE SUDOKU
+	1. Fillohet me perdorimin e butonave Pastroji rreshtat, Pastroji kolonat, Pastroji Medat.
+	2. Nese shtypja e ndonjerit nga keta butona rezulton ne percaktimin e fytyres se ndonjeres
+		qelule, duhet te thirren keto butona perseri ne menyre qe vlerat e gjetura te perjashtohen
+		nga mundesite e qelulave tjera.
+		Vazhdojme me klikimin e ketyre butonave deri sa arijme ne nje pike ku asnjeria nga ta nuk
+		ben percaktimin e vleres se ndonje qelule, ose deri sa te zgjidhet sudokuja.
+	3. Me supozimin se kemi klikuar butonat me siper secilin se paku nga nje here, dhe asnjeri nuk ka
+		bere percaktimin e fytyres se ndonjeres qelule, mund te vazhdojme me klikimin e vetem njerit
+		nga butonet Rresht-numer, Kolone-Numer, apo Medi-numer.
+	4. Nese klikimi i ndonjerit nga butonat e permendur ne fund te hapit 3 rezulton ne percaktimin e 
+		fytyres se ndonjeres qelule, atehere kthehemi ne hapin 1.
+	5. Nese shtypja e cilesdo nga gjashte butonat: Pastroji rreshtat, Pastroji kolonat, Pastroji medat,
+		Rresht-numer, Kolone-numer, Medi-numer nuk rezulton ne percaktimin e fytyres se ndonje qelule,
+		atehere vazhdojm me klikimin e butonit Gjeji probabilet (per te gjet probabilet) dhe me pas
+		me klikimin e butonave Rresht-probabil dhe Kolone-probabil qe te kryhen eliminimet. Ketu fillojm
+		prap nga e para.
+	1000. Nese nuk respektohet algoritmi i mesiperm, ajo cfare mund te rezultoj eshte vendosja e nje numri
+		te njejte brenda nje kutie te mesme, rreshti, apo kolone, gje qe nuk eshte e pranueshme.
+	1001. Nese respektohet algoritmi i mesiperm, nje numer i madh i Sudokuve mund te zgjidhet. Ato qe nuk mund
+		te zgjidhen kerkojne... nejse, kerkojne inkorporimin e asaj qe une po i referohem si spekulim.
+		Shpresohet se e percaktojme nje kuti te mesme, rresht, apo kolone te ciles i mungojne saktesisht dy numra.
+		Supozojme se njeri nga keta numra eshte fytyre e njeres nga keto dy qelula dhe shohim se a po e zgjidh kjo
+		sudokun. Nese po, shume mire. Nese jo, e dijme qe numri tjeter eshte ne kete qelulen e perzgjedhun, dhe
+		keshtu e zgjidhim sudokun.
+
+PER FUND
+
+Kete aplikacion e kam ndertu me shume qejf. Kjo pune mund te permiresohet shume duke inkorporu algoritmin e permendur
+ne 1001, dhe pas inkorporimit te ketij algoritmi, besoj se te gjitha sudokut e mundshme do te zgjidheshin. Jam shume
+konfident qe kjo qe tashme eshte ndertu i zgjidh te gjitha sudokut qe nuk kerkojne spekulim. Nese dikush gjen nje sudoku
+qe nuk kerkon spekulim dhe qe ky aplikacion nuk e zgjidh, kisha pas shume qejf me u njoftu ne menyre qe me e mesu edhe nje
+forme te percaktimit te fytyres se nje qelule pa spekulim.
+
+Besoj qe tashme eshte e nenkuptueshme qe kjo pune eshte prone e perbashket, keshtu qe kush te deshiroj qysh te deshiroj
+le ta shfrytezoj. Pershendetje!
