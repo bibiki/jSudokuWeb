@@ -3,5 +3,25 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<!-- General description of your web application -->
+	<display-name>jSudoku Web Projecr</display-name>
+	<description>
+		This web application is designed to demonstrate different
+		Sudoku implementation algorithmfor the purpose of educating
+		developers
+		and game professionals about sudoku
+		solve technic algirithm. Please
+		contact Erhun Baycelik
+		and Ngadhnjim Berani.
+	</description>
+	<servlet>
+		<servlet-name>SudokuServlet</servlet-name>
+		<servlet-class>org.games.sudoku.SudokuServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SudokuServlet</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
 </web-app>
