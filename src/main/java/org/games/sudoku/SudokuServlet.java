@@ -23,7 +23,6 @@ public class SudokuServlet extends HttpServlet {
 		try {
 			res.getOutputStream().print(grid.toString());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
