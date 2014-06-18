@@ -1,6 +1,8 @@
-package org.games.sudoku.swingApp;
+package org.games.sudoku.swingApp.models;
 
 import java.util.ArrayList;
+
+import org.games.sudoku.swingApp.SmallBox;
 
 public class Row {// kjo klase modelon rreshtin dhe permbane nente qelulat qe i
 					// perkasin

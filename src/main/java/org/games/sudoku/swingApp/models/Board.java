@@ -1,4 +1,7 @@
-package org.games.sudoku.swingApp;
+package org.games.sudoku.swingApp.models;
+
+import org.games.sudoku.swingApp.SmallBox;
+import org.games.sudoku.swingApp.SudokuSmallBoxKeyListener;
 /*
  * kjo klase modelon matricen e Sudokus
  * ketu instancohen qelulat e Sudokus.

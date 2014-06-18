@@ -1,6 +1,14 @@
 package org.games.sudoku.swingApp;
 
 import javax.swing.*;
+
+import org.games.sudoku.swingApp.models.Board;
+import org.games.sudoku.swingApp.models.Column;
+import org.games.sudoku.swingApp.models.MediumBox;
+import org.games.sudoku.swingApp.models.Row;
+import org.games.sudoku.swingApp.models.ShortColumn;
+import org.games.sudoku.swingApp.models.ShortRow;
+
 import java.awt.*;
 
 public class SudokuPanel extends JPanel {

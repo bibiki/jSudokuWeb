@@ -1,6 +1,8 @@
-package org.games.sudoku.swingApp;
+package org.games.sudoku.swingApp.models;
 
 import java.util.*;
+
+import org.games.sudoku.swingApp.SmallBox;
 
 /*
  * logjika eshte e njejte sikur per ShortColumn

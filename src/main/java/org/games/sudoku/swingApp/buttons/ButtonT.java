@@ -1,6 +1,9 @@
-package org.games.sudoku.swingApp;
+package org.games.sudoku.swingApp.buttons;
 
 import javax.swing.*;
+
+import org.games.sudoku.swingApp.SudokuPanel;
+
 // import java.awt.*;
 import java.awt.event.*;
 
