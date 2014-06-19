@@ -1,8 +1,11 @@
-package org.games.sudoku.swingApp;
+package org.games.sudoku.swingApp.buttons;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
+
+import org.games.sudoku.swingApp.models.Row;
 
 public class ClearRowProbablyBased extends JButton implements ActionListener {
 

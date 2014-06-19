@@ -1,6 +1,8 @@
-package org.games.sudoku.swingApp;
+package org.games.sudoku.swingApp.models;
 
 import java.util.ArrayList;
+
+import org.games.sudoku.swingApp.SmallBox;
 
 public class Column {
 	// teresia e qelulave qe kjo kolone permbane

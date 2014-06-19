@@ -1,5 +1,9 @@
 package org.games.sudoku.swingApp;
 
+import org.games.sudoku.swingApp.models.Board;
+import org.games.sudoku.swingApp.models.ShortColumn;
+import org.games.sudoku.swingApp.models.ShortRow;
+
 public class TestShortRows {
 	public static void main(String[] args) {
 		ShortRow[][] shortrows = new ShortRow[9][3];

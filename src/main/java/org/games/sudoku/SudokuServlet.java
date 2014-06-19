@@ -18,6 +18,7 @@ public class SudokuServlet extends HttpServlet {
 	}
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
+		System.out.println("controller controller");
 		SudokuGrid grid = new SudokuGrid();
 		grid.generateSudoku();
 		try {

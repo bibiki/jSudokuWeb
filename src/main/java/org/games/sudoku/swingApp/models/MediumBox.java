@@ -1,7 +1,11 @@
-package org.games.sudoku.swingApp;
+package org.games.sudoku.swingApp.models;
 
 import java.util.ArrayList;
+
 import javax.swing.*;
+
+import org.games.sudoku.swingApp.SmallBox;
+
 import java.awt.*;
 
 public class MediumBox extends JPanel {
