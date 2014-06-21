@@ -1,9 +1,12 @@
-package org.games.sudoku.swingApp;
+package org.games.sudoku.swingApp.buttons;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+
+import org.games.sudoku.swingApp.models.ShortColumn;
+import org.games.sudoku.swingApp.models.ShortRow;
 
 /*
  * kjo klase shfrytezohet si buton per te shikuar permbajtjen e probabileve te

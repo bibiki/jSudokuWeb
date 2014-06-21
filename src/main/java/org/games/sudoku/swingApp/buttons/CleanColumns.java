@@ -1,6 +1,9 @@
-package org.games.sudoku.swingApp;  
+package org.games.sudoku.swingApp.buttons;  
  import javax.swing.*;
-   import java.awt.event.*;
+
+import org.games.sudoku.swingApp.models.Column;
+
+import java.awt.event.*;
    //import java.awt.*;
 
    public class CleanColumns extends JButton implements ActionListener

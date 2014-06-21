@@ -1,6 +1,18 @@
 package org.games.sudoku.swingApp;
 
 import javax.swing.*;
+
+import org.games.sudoku.swingApp.buttons.ButtonT;
+import org.games.sudoku.swingApp.buttons.CleanColumns;
+import org.games.sudoku.swingApp.buttons.CleanMeds;
+import org.games.sudoku.swingApp.buttons.CleanRows;
+import org.games.sudoku.swingApp.buttons.IntegerColumnButton;
+import org.games.sudoku.swingApp.buttons.IntegerMediButton;
+import org.games.sudoku.swingApp.buttons.IntegerRowButton;
+import org.games.sudoku.swingApp.buttons.ProbableButton;
+import org.games.sudoku.swingApp.buttons.ShowPossibilitiesForEachSmallBox;
+import org.games.sudoku.swingApp.models.Board;
+
 import java.awt.*;
 
 public class TestMainImproved {
