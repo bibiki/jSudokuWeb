@@ -4,13 +4,13 @@
 
 <web-app>
 	<!-- General description of your web application -->
-	<display-name>jSudoku Web Projecr</display-name>
+	<display-name>jSudoku Web Project</display-name>
 	<description>
 		This web application is designed to demonstrate different
-		Sudoku implementation algorithmfor the purpose of educating
+		Sudoku implementation algorithm for the purpose of educating
 		developers
 		and game professionals about sudoku
-		solve technic algirithm. Please
+		solve technic algorithm. Please
 		contact Erhun Baycelik
 		and Ngadhnjim Berani.
 	</description>
