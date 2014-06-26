@@ -26,7 +26,8 @@
 	<servlet>
 		<servlet-name>TestingServlet</servlet-name>
 		<servlet-class>org.games.sudoku.testing.TestingServlet</servlet-class>
-	</servlet>	
+	</servlet>
+	
 		<servlet-mapping>
 		<servlet-name>TestingServlet</servlet-name>
 		<url-pattern>/testing</url-pattern>
