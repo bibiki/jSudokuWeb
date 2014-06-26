@@ -197,4 +197,19 @@ public class SudokuGrid {
 	private Cell[][] _matrix;
 	private static int staticRow = 0;
 	private static int staticColumn = 0;
+	
+	@Override
+	public boolean equals(Object sg){
+		if(sg == this) return true;
+		SudokuGrid s = (SudokuGrid)sg;;
+		for(int i = 0; i < this._matrix.length; i++){
+			for(int j = 0; j < this._matrix[0].length; j++){
+				if(this._matrix[i][j] != s.get_matrix()[i][j]){//we need to be careful of the case when one of
+						//the matrices contains a vaue outside the -128, 127 range
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 }

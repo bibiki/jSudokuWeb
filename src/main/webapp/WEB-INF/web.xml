@@ -3,15 +3,23 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  
-  <servlet>
-    <servlet-name>SudokuServlet</servlet-name>
-    <servlet-class>org.games.sudoku.SudokuServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>SudokuServlet</servlet-name>
-    <url-pattern>/sudoku</url-pattern>
-</servlet-mapping>
+	<display-name>Archetype Created Web Application</display-name>
 
+	<servlet>
+		<servlet-name>SudokuServlet</servlet-name>
+		<servlet-class>org.games.sudoku.SudokuServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>TestingServlet</servlet-name>
+		<servlet-class>org.games.sudoku.testing.TestingServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>SudokuServlet</servlet-name>
+		<url-pattern>/sudoku</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TestingServlet</servlet-name>
+		<url-pattern>/testing</url-pattern>
+	</servlet-mapping>
 </web-app>
