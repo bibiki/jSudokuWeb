@@ -23,12 +23,12 @@ public class CleanRows extends JButton implements ActionListener {
 		// System.out.println("removing possibilities");
 		for (int i = 0; i < rows.length; i++) {
 			for (int j = 0; j < 9; j++) {
-				if (!rows[i].row[j].face.equals(new Integer(0))) {
+				if (!rows[i].cell[j].face.equals(new Integer(0))) {
 					for (int k = 0; k < 9; k++) {
 						if (k != j) {
 							// System.out.println("clening");
-							rows[i].row[k]
-									.eliminateFromPossibilities(rows[i].row[j].face);
+							rows[i].cell[k]
+									.eliminateFromPossibilities(rows[i].cell[j].face);
 							// System.out.println("\t\t\tclening");
 						}
 					}

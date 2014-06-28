@@ -25,7 +25,7 @@ public class IntegerRowButton extends JButton implements ActionListener {
 		for (int i = 0; i < 9; i++) {
 			System.out.println("Rreshti: " + (i + 1));
 			for (int j = 1; j <= 9; j++) {
-				System.out.println("\tInteger: " + new Integer(j));
+//				System.out.println("\tInteger: " + new Integer(j));
 				checkIntegerInRow(new Integer(j), row[i]);
 			}
 		}
@@ -35,7 +35,7 @@ public class IntegerRowButton extends JButton implements ActionListener {
 		int rez = 0;
 		for (int j = 0; j < 9; j++) {
 			System.out.println("\t\tShtylla: " + j);
-			if (r.row[j].possibilities.indexOf(i) != -1) {
+			if (r.cell[j].possibilities.indexOf(i) != -1) {
 				rez++;
 				System.out.println("\t\t\tu gjet potenciali");
 			}
@@ -43,9 +43,9 @@ public class IntegerRowButton extends JButton implements ActionListener {
 
 		if (rez == 1) {
 			for (int j = 0; j < 9; j++) {
-				if (r.row[j].possibilities.indexOf(i) > -1) {
+				if (r.cell[j].possibilities.indexOf(i) > -1) {
 					// r.row[j].possibilities.get(j);
-					r.row[j].setFace(i);
+					r.cell[j].setFace(i);
 				}
 			}
 		}

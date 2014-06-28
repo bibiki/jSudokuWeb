@@ -24,14 +24,14 @@ import java.awt.event.*;
          {
             for(int j = 0; j < 9; j++)
             {
-               if(!rows[i].column[j].face.equals(new Integer(0)))
+               if(!rows[i].cell[j].face.equals(new Integer(0)))
                {
                   for(int k = 0; k < 9; k++)
                   {
                      if(k != j)
                      {
                  //       System.out.println("clening");
-                        rows[i].column[k].eliminateFromPossibilities(rows[i].column[j].face);
+                        rows[i].cell[k].eliminateFromPossibilities(rows[i].cell[j].face);
                  //       System.out.println("\t\t\tclening");
                      }
                   }
