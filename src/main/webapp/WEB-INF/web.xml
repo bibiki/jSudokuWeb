@@ -10,7 +10,8 @@
 		Sudoku implementation algorithm for the purpose of educating
 		developers
 		and game professionals about sudoku
-		solve technic algorithm. Please
+		solve technic algorithm.
+		Please
 		contact Erhun Baycelik
 		and Ngadhnjim Berani.
 	</description>
@@ -19,15 +20,15 @@
 		<servlet-class>org.games.sudoku.SudokuServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-        <servlet-mapping>
-		<servlet-name>SudokuServlet</servlet-name>
-		<url-pattern>/sudoku</url-pattern>
-	</servlet-mapping>
 	<servlet>
 		<servlet-name>TestingServlet</servlet-name>
 		<servlet-class>org.games.sudoku.testing.TestingServlet</servlet-class>
-	</servlet>	
-		<servlet-mapping>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SudokuServlet</servlet-name>
+		<url-pattern>/sudoku</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>TestingServlet</servlet-name>
 		<url-pattern>/testing</url-pattern>
 	</servlet-mapping>
