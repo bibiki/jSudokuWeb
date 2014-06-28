@@ -39,7 +39,7 @@ public class IntegerColumnButton extends JButton implements ActionListener {
 			// System.out.println("\t\tShtylla: " + j);
 			// nese qelula j brenda kolones e permbane ne mundesite e veta
 			// numrin i, atehere rrite variablen rez per njo
-			if (c.column[j].possibilities.indexOf(i) != -1) {
+			if (c.cell[j].possibilities.indexOf(i) != -1) {
 				rez++;
 				// System.out.println("\t\t\tu gjet potenciali");
 			}
@@ -49,8 +49,8 @@ public class IntegerColumnButton extends JButton implements ActionListener {
 		// numri i gjindet brenda mundesive
 		if (rez == 1) {
 			for (int j = 0; j < 9; j++) {
-				if (c.column[j].possibilities.indexOf(i) > -1) {
-					c.column[j].setFace(i);
+				if (c.cell[j].possibilities.indexOf(i) > -1) {
+					c.cell[j].setFace(i);
 				}
 			}
 		}

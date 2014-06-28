@@ -27,12 +27,12 @@ public class CleanMeds extends JButton implements ActionListener {
 			for (int j = 0; j < 9; j++) {
 				// System.out.println(!(meds[i].med[j].face.equals(new
 				// Integer(0))));
-				if (!(meds[i].med[j].face.equals(new Integer(0)))) {
+				if (!(meds[i].cell[j].face.equals(new Integer(0)))) {
 					for (int k = 0; k < 9; k++) {
 						if (k != j) {
 							// System.out.println("clening");
-							meds[i].med[k]
-									.eliminateFromPossibilities(meds[i].med[j].face);
+							meds[i].cell[k]
+									.eliminateFromPossibilities(meds[i].cell[j].face);
 							// System.out.println("\t\t\tclening");
 						}
 					}

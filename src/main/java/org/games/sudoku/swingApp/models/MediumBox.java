@@ -11,7 +11,7 @@ import java.awt.*;
 public class MediumBox extends JPanel {
 	public ArrayList<Integer> notFound = new ArrayList<Integer>();
 	public SmallBox[][] mediumBox = new SmallBox[3][3];
-	public SmallBox[] med = new SmallBox[9];
+	public SmallBox[] cell = new SmallBox[9];
 	public ShortColumn[] shortCols = new ShortColumn[3];
 	public ShortRow[] shortRows = new ShortRow[3];
 
@@ -42,7 +42,7 @@ public class MediumBox extends JPanel {
 			}
 		}
 		for (int i = 0; i < 9; i++) {
-			med[i] = mediumBox[i / 3][i % 3];
+			cell[i] = mediumBox[i / 3][i % 3];
 		}
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {

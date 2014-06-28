@@ -27,7 +27,7 @@ public class IntegerMediButton extends JButton implements ActionListener {
 		for (int i = 0; i < 9; i++) {
 			System.out.println("Kolona: " + (i + 1));
 			for (int j = 1; j <= 9; j++) {
-				System.out.println("\tInteger: " + new Integer(j));
+//				System.out.println("\tInteger: " + new Integer(j));
 				checkIntegerInMed(new Integer(j), meds[i]);
 			}
 		}
@@ -38,7 +38,7 @@ public class IntegerMediButton extends JButton implements ActionListener {
 
 		for (int j = 0; j < 9; j++) {
 			System.out.println("\t\tShtylla: " + j);
-			if (m.med[j].possibilities.indexOf(i) != -1) {
+			if (m.cell[j].possibilities.indexOf(i) != -1) {
 				rez++;
 				System.out.println("\t\t\tu gjet potenciali");
 			}
@@ -46,8 +46,8 @@ public class IntegerMediButton extends JButton implements ActionListener {
 
 		if (rez == 1) {
 			for (int j = 0; j < 9; j++) {
-				if (m.med[j].possibilities.indexOf(i) > -1) {
-					m.med[j].setFace(i);
+				if (m.cell[j].possibilities.indexOf(i) > -1) {
+					m.cell[j].setFace(i);
 				}
 			}
 		}

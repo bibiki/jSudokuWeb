@@ -6,7 +6,7 @@ import org.games.sudoku.swingApp.SmallBox;
 
 public class Column {
 	// teresia e qelulave qe kjo kolone permbane
-	public SmallBox[] column = new SmallBox[9];
+	public SmallBox[] cell = new SmallBox[9];
 	// numrat qe ende nuk jane gjete brenda kesaj kolone
 	public ArrayList<Integer> notFound = new ArrayList<Integer>();
 	// tri kolonat e shkurta qe e ndertojne kete kolone
@@ -15,14 +15,14 @@ public class Column {
 	public Column(Board b, int col) {
 		// vendosi qelulat korresponduese ne kete kolone
 		for (int i = 0; i < 9; i++) {
-			column[i] = b.board[i][col];
+			cell[i] = b.board[i][col];
 		}
 	}
 
 	// per ndihme gjate zhvillimit, kjo afishon fytyrat e qelulave te kolones
 	public void afishojeKolonen() {
 		for (int i = 0; i < 9; i++) {
-			System.out.println(column[i].face);
+			System.out.println(cell[i].face);
 		}
 	}
 }

@@ -22,7 +22,6 @@ public class SmallBox extends TextField {
 	public SmallBox() {
 		face = new Integer(0);
 		for (int i = 1; i <= 9; i++) {
-
 			possibilities.add(i);
 		}
 	}
@@ -47,8 +46,6 @@ public class SmallBox extends TextField {
 				// System.out.println("\t\tRemoving " + i);
 				possibilities.remove(i);
 			}
-		} else {
-			System.out.println("no cleaning really took place");
 		}
 		// secilen here qe nje mundesi eliminohet, shiko nese numri i mundesive
 		// eshte saktesisht nje, dhe nese po, vendose ate mundesi si fytyre
