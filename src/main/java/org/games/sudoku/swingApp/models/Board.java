@@ -2,8 +2,6 @@ package org.games.sudoku.swingApp.models;
 
 import org.games.sudoku.Cell;
 import org.games.sudoku.SudokuGrid;
-import org.games.sudoku.swingApp.SmallBox;
-import org.games.sudoku.swingApp.SudokuSmallBoxKeyListener;
 
 /*
  * kjo klase modelon matricen e Sudokus
@@ -21,8 +19,6 @@ public class Board {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				board[i][j] = new SmallBox();
-				board[i][j].addKeyListener(new SudokuSmallBoxKeyListener(
-						board[i][j]));
 			}
 		}
 	}
@@ -35,6 +31,8 @@ public class Board {
 			colSum = 0;
 			rowSum = 0;
 			for(int j = 0; j < 9; j++){
+				if(board[j][i].face > 9 || board[j][i].face < 1 || board[i][j].face > 9 || board[i][j].face > 9)
+					return false;
 				colSum += board[j][i].face;
 				rowSum += board[i][j].face;
 			}
@@ -55,7 +53,7 @@ public class Board {
 		for(int i = 0; i < 9; i++){
 			for(int j = 0; j < 9; j++){
 				board[i][j] = new SmallBox(cells[i][j].get_value());
-				if(board[i][j].face > 0)
+				if(board[i][j].face > 0 && board[i][j].face < 10)
 					board[i][j].possibilities.clear();
 			}
 		}

@@ -2,8 +2,6 @@ package org.games.sudoku.swingApp.models;
 
 import java.util.*;
 
-import org.games.sudoku.swingApp.SmallBox;
-
 public class ShortColumn {
 	// ketu vendosen qelulat qe perbjne kete kolone te shkurte
 	public SmallBox[] shortcolumn = new SmallBox[3];

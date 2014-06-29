@@ -1,13 +1,13 @@
-package org.games.algorithm.impl;
+package org.games.sudoku.algorithm.impl;
 
 import org.games.sudoku.Cell;
 import org.games.sudoku.SudokuGrid;
-import org.games.sudoku.impl.SolveByElimination;
-import org.games.sudoku.swingApp.SmallBox;
+import org.games.sudoku.algorithm.impl.SolveByElimination;
 import org.games.sudoku.swingApp.models.Board;
 import org.games.sudoku.swingApp.models.Column;
 import org.games.sudoku.swingApp.models.MediumBox;
 import org.games.sudoku.swingApp.models.Row;
+import org.games.sudoku.swingApp.models.SmallBox;
 /**
  * To run the test, please pass "-ea" to VM as an argument:
  * run configurations -> arguments -> in the VM box

@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.games.algorithm.spec.SudokuSolvingAlgorithm;
 import org.games.sudoku.Cell;
 import org.games.sudoku.SudokuGrid;
+import org.games.sudoku.algorithm.impl.SolveByElimination;
 import org.games.sudoku.commons.BaseServlet;
-import org.games.sudoku.impl.SolveByElimination;
 
 public class TestingServlet extends BaseServlet {
 

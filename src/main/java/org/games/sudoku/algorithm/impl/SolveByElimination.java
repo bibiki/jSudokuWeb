@@ -1,4 +1,4 @@
-package org.games.sudoku.impl;
+package org.games.sudoku.algorithm.impl;
 
 import org.games.algorithm.spec.SudokuSolvingAlgorithm;
 import org.games.sudoku.SudokuGrid;
@@ -93,7 +93,7 @@ public class SolveByElimination implements SudokuSolvingAlgorithm {
 		}
 	}
 
-	public void applyEliminationInMediumBox(MediumBox mBox) {
+	protected void applyEliminationInMediumBox(MediumBox mBox) {
 		for (int j = 0; j < 9; j++) {
 			if (!(mBox.cell[j].face.equals(new Integer(0)))) {
 				for (int k = 0; k < 9; k++) {
@@ -105,7 +105,7 @@ public class SolveByElimination implements SudokuSolvingAlgorithm {
 		}
 	}
 	
-	public void checkIntegerInRow(Integer i, Row row) {
+	private void checkIntegerInRow(Integer i, Row row) {
 		int rez = 0;
 		for (int j = 0; j < 9; j++) {
 			if (row.cell[j].possibilities.indexOf(i) != -1) {
@@ -122,7 +122,7 @@ public class SolveByElimination implements SudokuSolvingAlgorithm {
 		}
 	}
 	
-	public void checkIntegerInColumn(Integer i, Column col){
+	private void checkIntegerInColumn(Integer i, Column col){
 		int rez = 0;// kjo do ta mbaje numrin e qelulave qe mund ta permbajne
 		// numrin i si fytyre, pra ne mesin e mundesive te veta
 
@@ -145,7 +145,7 @@ public class SolveByElimination implements SudokuSolvingAlgorithm {
 		}
 	}
 	
-	public void checkIntegerInMed(Integer i, MediumBox mmBox) {
+	private void checkIntegerInMed(Integer i, MediumBox mmBox) {
 		int rez = 0;
 		for (int j = 0; j < 9; j++) {
 			if (mmBox.cell[j].possibilities.indexOf(i) != -1) {
