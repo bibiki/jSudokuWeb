@@ -22,7 +22,7 @@ public class SolveByElimination implements SudokuSolvingAlgorithm {
 	public SudokuGrid solve(SudokuGrid sg) {
 		Board b = new Board(sg);
 		int i = 0;
-		while(i++ < 100){//100 iterations must suffice. If every iteration finds exactly 1 number, then 81 iterations would be enough.
+		while(i++ < 100 && !b.isSolved()){//100 iterations must suffice. If every iteration finds exactly 1 number, then 81 iterations would be enough.
 			//however, with a minimum of 17 already in place, the number of iterations necessary is even less. But, we'll do with 100.
 			//If two consecutive iterations find nothing, then the grid can not be solved by this algorithm
 			Board snapShot = new Board(b);

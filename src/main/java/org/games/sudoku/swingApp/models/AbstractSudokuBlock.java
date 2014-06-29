@@ -24,4 +24,18 @@ public abstract class AbstractSudokuBlock {
 			System.out.println(cell[i].face);
 		}
 	}
+	
+	public boolean isThereConflict(){
+		for(int i = 1; i <= 9; i++){
+			int rez = 0;
+			for(int j = 0; j < 9; j++){
+				if(cell[j].face.equals(i)){
+					if(++rez == 2){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
 }

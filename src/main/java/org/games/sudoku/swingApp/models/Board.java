@@ -99,4 +99,12 @@ public class Board {
 					return false;
 		return rez;
 	}
+	
+	public boolean isThereConflict(){
+		for(int i = 0; i < 9; i++){
+			if(new Row(this, i).isThereConflict() || new Column(this, i).isThereConflict() || new MediumBox(this, i/3, i%3).isThereConflict())
+				return true;
+		}
+		return false;
+	}
 }
