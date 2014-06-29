@@ -43,6 +43,10 @@ public class MediumBox extends JPanel {
 		}
 		for (int i = 0; i < 9; i++) {
 			cell[i] = mediumBox[i / 3][i % 3];
+			shortRows[i%3] = new ShortRow();
+			shortRows[i%3].shortrow[i/3] = cell[i];
+			shortCols[i/3] = new ShortColumn();
+			shortCols[i/3].shortcolumn[i%3] = cell[i];
 		}
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {

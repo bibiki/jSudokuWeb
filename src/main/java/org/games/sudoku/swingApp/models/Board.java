@@ -38,6 +38,8 @@ public class Board {
 		for(int i = 0; i < 9; i++){
 			for(int j = 0; j < 9; j++){
 				board[i][j] = new SmallBox(cells[i][j].get_value());
+				if(board[i][j].face > 0)
+					board[i][j].possibilities.clear();
 			}
 		}
 	}
@@ -68,5 +70,18 @@ public class Board {
 				if(b.board[i][j] != this.board[i][j])
 					return true;
 		return false;
+	}
+	
+	@Override
+	public boolean equals(Object o){
+		if(this == o)
+			return true;
+		Board b = (Board)o;
+		boolean rez = true;
+		for(int i = 0; i < 9; i++)
+			for(int j = 0; j < 9; j++)
+				if(!b.board[i][j].face.equals(this.board[i][j].face))
+					return false;
+		return rez;
 	}
 }

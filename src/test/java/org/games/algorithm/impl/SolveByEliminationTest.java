@@ -20,6 +20,21 @@ public class SolveByEliminationTest {
 	private SudokuGrid easySudoku = new SudokuGrid();
 	private Board board = null;
 	private SolveByElimination algorithm = new SolveByElimination();
+	private SudokuGrid mediumDifficulty1 = null;//this one requires the use of column elimination from number (instead of number from column)
+	
+	public void setMediumDifficultyGridUp1(){
+		mediumDifficulty1 = new SudokuGrid();
+		Cell[][] _matrix = {{new Cell(6), new Cell(0), new Cell(0), new Cell(0), new Cell(1), new Cell(0), new Cell(0), new Cell(7), new Cell(0)},
+							{new Cell(8), new Cell(0), new Cell(5), new Cell(7), new Cell(0), new Cell(0), new Cell(0), new Cell(4), new Cell(0)},
+							{new Cell(0), new Cell(2), new Cell(0), new Cell(5), new Cell(0), new Cell(0), new Cell(6), new Cell(0), new Cell(0)},
+							{new Cell(0), new Cell(3), new Cell(0), new Cell(0), new Cell(0), new Cell(4), new Cell(7), new Cell(0), new Cell(0)},
+							{new Cell(7), new Cell(0), new Cell(0), new Cell(3), new Cell(0), new Cell(8), new Cell(0), new Cell(0), new Cell(2)},
+							{new Cell(0), new Cell(0), new Cell(9), new Cell(1), new Cell(0), new Cell(0), new Cell(0), new Cell(5), new Cell(0)},
+							{new Cell(0), new Cell(0), new Cell(2), new Cell(0), new Cell(0), new Cell(1), new Cell(0), new Cell(8), new Cell(0)},
+							{new Cell(0), new Cell(7), new Cell(0), new Cell(0), new Cell(0), new Cell(5), new Cell(3), new Cell(0), new Cell(6)},
+							{new Cell(0), new Cell(6), new Cell(0), new Cell(0), new Cell(2), new Cell(0), new Cell(0), new Cell(0), new Cell(7)}};
+		mediumDifficulty1.set_matrix(_matrix);
+	}
 	
 	public void setEasySudokuUp(){
 		/**
@@ -146,12 +161,32 @@ public class SolveByEliminationTest {
 		System.out.println("Your test SolveByEliminationTest.testTheAlgorithmWithEasySudoku() passed successfully");
 	}
 	
+	public void testTheAlgorithmWithMediumDifficultySudoku1(){
+		setMediumDifficultyGridUp1();
+		SudokuGrid preSolved = new SudokuGrid();
+		Cell[][] _matrix = {{new Cell(6), new Cell(9), new Cell(3), new Cell(4), new Cell(1), new Cell(2), new Cell(8), new Cell(7), new Cell(5)},
+							{new Cell(8), new Cell(1), new Cell(5), new Cell(7), new Cell(3), new Cell(6), new Cell(2), new Cell(4), new Cell(9)},
+							{new Cell(4), new Cell(2), new Cell(7), new Cell(5), new Cell(8), new Cell(9), new Cell(6), new Cell(3), new Cell(1)},
+							{new Cell(5), new Cell(3), new Cell(1), new Cell(2), new Cell(9), new Cell(4), new Cell(7), new Cell(6), new Cell(8)},
+							{new Cell(7), new Cell(4), new Cell(6), new Cell(3), new Cell(5), new Cell(8), new Cell(1), new Cell(9), new Cell(2)},
+							{new Cell(2), new Cell(8), new Cell(9), new Cell(1), new Cell(6), new Cell(7), new Cell(4), new Cell(5), new Cell(3)},
+							{new Cell(3), new Cell(5), new Cell(2), new Cell(6), new Cell(7), new Cell(1), new Cell(9), new Cell(8), new Cell(4)},
+							{new Cell(1), new Cell(7), new Cell(8), new Cell(9), new Cell(4), new Cell(5), new Cell(3), new Cell(2), new Cell(6)},
+							{new Cell(9), new Cell(6), new Cell(4), new Cell(8), new Cell(2), new Cell(3), new Cell(5), new Cell(1), new Cell(7)}};
+		preSolved.set_matrix(_matrix);
+		SudokuGrid sg = algorithm.solve(mediumDifficulty1);
+		assert sg.equals(preSolved) : "Your test SolveByEliminationTest.testTheAlgorithmWithMediumDifficultySudoku1() failed.";
+		System.out.println("Your test SolveByEliminationTest.testTheAlgorithmWithMediumDifficultySudoku1() passed successfully.");
+		
+	}
+	
 	public static void main(String[] args){
 		SolveByEliminationTest sbt = new SolveByEliminationTest();
 		sbt.testTheAlgorithmWithEasySudoku();
-//		sbt.testingEliminationAlgorithm();
+		sbt.testingEliminationAlgorithm();
 		sbt.testEliminationByRow();
 		sbt.testEliminationByColumn();
 		sbt.testEliminationByMediumBox();
+		sbt.testTheAlgorithmWithMediumDifficultySudoku1();
 	}
 }

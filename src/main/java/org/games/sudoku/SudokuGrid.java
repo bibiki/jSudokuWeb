@@ -204,8 +204,7 @@ public class SudokuGrid {
 		SudokuGrid s = (SudokuGrid)sg;
 		for(int i = 0; i < this._matrix.length; i++){
 			for(int j = 0; j < this._matrix[0].length; j++){
-				if(!this._matrix[i][j].get_value().equals(s.get_matrix()[i][j].get_value())){//we need to be careful of the case when one of
-						//the matrices contains a vaue outside the -128, 127 range
+				if(!this._matrix[i][j].get_value().equals(s.get_matrix()[i][j].get_value())){
 					return false;
 				}
 			}
