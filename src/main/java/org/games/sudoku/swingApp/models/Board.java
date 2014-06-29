@@ -27,6 +27,23 @@ public class Board {
 		}
 	}
 	
+	public boolean isSolved(){
+		boolean rez = true;
+		int colSum = 0;
+		int rowSum = 0;
+		for(int i = 0; i < 9; i++){
+			colSum = 0;
+			rowSum = 0;
+			for(int j = 0; j < 9; j++){
+				colSum += board[j][i].face;
+				rowSum += board[i][j].face;
+			}
+			if(!(45 == colSum && colSum == rowSum))
+					return false;
+		}		
+		return rez;
+	}
+	
 	public Board(Board b){
 		for (int i = 0; i < 9; i++) 
 			for (int j = 0; j < 9; j++) 

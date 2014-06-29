@@ -180,6 +180,15 @@ public class SolveByEliminationTest {
 		
 	}
 	
+	public void testIsSolved(){
+		setEasySudokuUp();
+		Board board = new Board(easySudoku);
+		assert false == board.isSolved() : "Your test SolveByEliminationTest.testIsSolved() failed.";
+		board = new Board(algorithm.solve(easySudoku));
+		assert board.isSolved() : "Your test SolveByEliminationTest.testIsSolved() failed.";
+		System.out.println("Your test SolveByEliminationTest.testIsSolved() passed successfully.");
+	}
+	
 	public static void main(String[] args){
 		SolveByEliminationTest sbt = new SolveByEliminationTest();
 		sbt.testTheAlgorithmWithEasySudoku();
@@ -188,5 +197,6 @@ public class SolveByEliminationTest {
 		sbt.testEliminationByColumn();
 		sbt.testEliminationByMediumBox();
 		sbt.testTheAlgorithmWithMediumDifficultySudoku1();
+		sbt.testIsSolved();
 	}
 }
