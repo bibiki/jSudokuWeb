@@ -52,12 +52,12 @@ public class SolveByElimination implements SudokuSolvingAlgorithm {
 				}
 				if(b.equals(snapShot)){
 					//a medium box, one 3x3 box, consists of 3 rows/columns or 1x3/3x1.
-					//we want to find number that may possible be in one of the rows/columns,
+					//we want to find numbers that may possible be in one of the rows/columns,
 					//but not on the other two rows/columns. The findProbably() method does that.
 					//This should always be the last hope to find a number in the grid.
 					for (int j = 0; j < 9; j++) {
 						for (int k = 1; k <= 9; k++) {
-//							new MediumBox(b, j/3, j%3).findProbably();
+							new MediumBox(b, j/3, j%3).findProbably();
 						}
 					}
 				}

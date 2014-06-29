@@ -56,7 +56,6 @@ public class TestingServlet extends BaseServlet {
 				name = name.replaceAll("cell", "");
 				int i = new Integer("" + name.charAt(0)).intValue();
 				int j = new Integer("" + name.charAt(1)).intValue();
-				System.out.println(i + " " + j + " : " + req.getParameter("cell" + name));
 				_matrix[i][j] = new Cell(new Integer("".equals(req.getParameter("cell" + name)) ? "0" : req.getParameter("cell" + name)));
 			}
 		}

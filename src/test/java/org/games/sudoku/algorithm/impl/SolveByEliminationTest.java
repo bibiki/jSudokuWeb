@@ -1,5 +1,6 @@
 package org.games.sudoku.algorithm.impl;
 
+
 import org.games.sudoku.Cell;
 import org.games.sudoku.SudokuGrid;
 import org.games.sudoku.algorithm.impl.SolveByElimination;
@@ -8,6 +9,8 @@ import org.games.sudoku.swingApp.models.Column;
 import org.games.sudoku.swingApp.models.MediumBox;
 import org.games.sudoku.swingApp.models.Row;
 import org.games.sudoku.swingApp.models.SmallBox;
+import org.junit.Test;
+import static org.junit.Assert.assertTrue;
 /**
  * To run the test, please pass "-ea" to VM as an argument:
  * run configurations -> arguments -> in the VM box
@@ -22,7 +25,7 @@ public class SolveByEliminationTest {
 	private SolveByElimination algorithm = new SolveByElimination();
 	private SudokuGrid mediumDifficulty1 = null;//this one requires the use of column elimination from number (instead of number from column)
 	
-	public void setMediumDifficultyGridUp1(){
+	private void setMediumDifficultyGridUp1(){
 		mediumDifficulty1 = new SudokuGrid();
 		Cell[][] _matrix = {{new Cell(6), new Cell(0), new Cell(0), new Cell(0), new Cell(1), new Cell(0), new Cell(0), new Cell(7), new Cell(0)},
 							{new Cell(8), new Cell(0), new Cell(5), new Cell(7), new Cell(0), new Cell(0), new Cell(0), new Cell(4), new Cell(0)},
@@ -36,7 +39,7 @@ public class SolveByEliminationTest {
 		mediumDifficulty1.set_matrix(_matrix);
 	}
 	
-	public void setEasySudokuUp(){
+	private void setEasySudokuUp(){
 		/**
 		 * this Sudoku CAN be solved only by applying
 		 * the elimination on rows, columns, and medium boxes.
@@ -77,6 +80,7 @@ public class SolveByEliminationTest {
 				board.board[i][j] = new SmallBox(grid.get_matrix()[i][j].get_value());
 	}
 	
+	@Test
 	public void testingEliminationAlgorithm(){
 		setGridUp();
 		SudokuGrid g = algorithm.solve(grid);
@@ -91,10 +95,11 @@ public class SolveByEliminationTest {
 							{new Cell(8), new Cell(4), new Cell(1), new Cell(6), new Cell(9), new Cell(5), new Cell(3), new Cell(2), new Cell(7)},
 							{new Cell(9), new Cell(7), new Cell(6), new Cell(3), new Cell(2), new Cell(1), new Cell(5), new Cell(8), new Cell(4)}};
 		preSolved.set_matrix(_matrix);
-		assert preSolved.equals(g) : "your test SolveByEliminationTest.testingEliminaionAlgorithm() is failing";
-		System.out.println("your test SolveByEliminationTest.testingEliminationAlgorithm() passed successfully");
+		
+		assertTrue(preSolved.equals(g));
 	}
 	
+	@Test
 	public void testEliminationByRow(){
 		/* 7, 5, and 4 should be removed from cells 2, 3, 4, 5, 6, and 8*/
 		setBoardUp();
@@ -108,10 +113,10 @@ public class SolveByEliminationTest {
 		condition &= !r.cell[6].possibilities.contains(4) && !r.cell[6].possibilities.contains(5) && !r.cell[6].possibilities.contains(7);
 		condition &= !r.cell[8].possibilities.contains(4) && !r.cell[8].possibilities.contains(5) && !r.cell[8].possibilities.contains(7);
 		
-		assert condition : "Your test SolveByEliminationTest.testEliminationByRow() is failing";
-		System.out.println("Your test SolveByEliminationTest.testEliminationByRow() has passed successfully");
+		assertTrue(condition);
 	}
 	
+	@Test
 	public void testEliminationByColumn(){
 		/* 1, 3, and 4 should be removed from cells 2, 3, 4, 6, 7, and 9*/
 		setBoardUp();
@@ -123,10 +128,10 @@ public class SolveByEliminationTest {
 		for(int i = 0; i < toBeRemoved.length; i++)
 			for(int j = 0; j < fromCesll.length; j++)
 				condition &= !col.cell[fromCesll[j]].possibilities.contains(toBeRemoved[i]);		
-		assert condition : "Your test SolveByEliminationTest.testEliminationByColumn() is failing";
-		System.out.println("Your test SolveByEliminationTest.testEliminationByColumn() has passed successfully");
+		assertTrue(condition);
 	}
 	
+	@Test
 	public void testEliminationByMediumBox(){
 		/* 1, 2, 8, and 9 should be removed from cells 1, 2, 5, 8 and 9*/
 		setBoardUp();
@@ -139,10 +144,10 @@ public class SolveByEliminationTest {
 			for(int j = 0; j < fromCells.length; j++)
 				condition &= !mBox.cell[fromCells[j]].possibilities.contains(toBeRemoved[i]);		
 		
-		assert condition : "Your test SolveByEliminationTest.testEliminationByMediumBox() is failing";
-		System.out.println("Your test SolveByEliminationTest.testEliminationByMediumBox() has passed successfully");
+		assertTrue(condition);
 	}
 	
+	@Test
 	public void testTheAlgorithmWithEasySudoku(){
 		setEasySudokuUp();
 		SudokuGrid preSolved = new SudokuGrid();
@@ -157,10 +162,10 @@ public class SolveByEliminationTest {
 							{new Cell(9),   new Cell(8),   new Cell(2),   new Cell(7),   new Cell(6),   new Cell(5),   new Cell(3),   new Cell(4),   new Cell(1)}};
 		preSolved.set_matrix(_matrix);
 		SudokuGrid sg = algorithm.solve(easySudoku);
-		assert sg.equals(preSolved) : "Your test SolveByEliminationTest.testTheAlgorithmWithEasySudoku() is failling";
-		System.out.println("Your test SolveByEliminationTest.testTheAlgorithmWithEasySudoku() passed successfully");
+		assertTrue(sg.equals(preSolved));
 	}
 	
+	@Test
 	public void testTheAlgorithmWithMediumDifficultySudoku1(){
 		setMediumDifficultyGridUp1();
 		SudokuGrid preSolved = new SudokuGrid();
@@ -175,28 +180,16 @@ public class SolveByEliminationTest {
 							{new Cell(9), new Cell(6), new Cell(4), new Cell(8), new Cell(2), new Cell(3), new Cell(5), new Cell(1), new Cell(7)}};
 		preSolved.set_matrix(_matrix);
 		SudokuGrid sg = algorithm.solve(mediumDifficulty1);
-		assert sg.equals(preSolved) : "Your test SolveByEliminationTest.testTheAlgorithmWithMediumDifficultySudoku1() failed.";
-		System.out.println("Your test SolveByEliminationTest.testTheAlgorithmWithMediumDifficultySudoku1() passed successfully.");
+		assertTrue(sg.equals(preSolved));
 		
 	}
 	
+	@Test
 	public void testIsSolved(){
 		setEasySudokuUp();
 		Board board = new Board(easySudoku);
-		assert false == board.isSolved() : "Your test SolveByEliminationTest.testIsSolved() failed.";
+		assertTrue(!board.isSolved());
 		board = new Board(algorithm.solve(easySudoku));
-		assert board.isSolved() : "Your test SolveByEliminationTest.testIsSolved() failed.";
-		System.out.println("Your test SolveByEliminationTest.testIsSolved() passed successfully.");
-	}
-	
-	public static void main(String[] args){
-		SolveByEliminationTest sbt = new SolveByEliminationTest();
-		sbt.testTheAlgorithmWithEasySudoku();
-		sbt.testingEliminationAlgorithm();
-		sbt.testEliminationByRow();
-		sbt.testEliminationByColumn();
-		sbt.testEliminationByMediumBox();
-		sbt.testTheAlgorithmWithMediumDifficultySudoku1();
-		sbt.testIsSolved();
+		assertTrue(board.isSolved());
 	}
 }
