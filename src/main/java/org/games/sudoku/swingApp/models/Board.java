@@ -2,8 +2,6 @@ package org.games.sudoku.swingApp.models;
 
 import org.games.sudoku.Cell;
 import org.games.sudoku.SudokuGrid;
-import org.games.sudoku.swingApp.SmallBox;
-import org.games.sudoku.swingApp.SudokuSmallBoxKeyListener;
 
 /*
  * kjo klase modelon matricen e Sudokus
@@ -21,10 +19,27 @@ public class Board {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				board[i][j] = new SmallBox();
-				board[i][j].addKeyListener(new SudokuSmallBoxKeyListener(
-						board[i][j]));
 			}
 		}
+	}
+	
+	public boolean isSolved(){
+		boolean rez = true;
+		int colSum = 0;
+		int rowSum = 0;
+		for(int i = 0; i < 9; i++){
+			colSum = 0;
+			rowSum = 0;
+			for(int j = 0; j < 9; j++){
+				if(board[j][i].face > 9 || board[j][i].face < 1 || board[i][j].face > 9 || board[i][j].face > 9)
+					return false;
+				colSum += board[j][i].face;
+				rowSum += board[i][j].face;
+			}
+			if(!(45 == colSum && colSum == rowSum))
+					return false;
+		}		
+		return rez;
 	}
 	
 	public Board(Board b){
@@ -38,6 +53,8 @@ public class Board {
 		for(int i = 0; i < 9; i++){
 			for(int j = 0; j < 9; j++){
 				board[i][j] = new SmallBox(cells[i][j].get_value());
+				if(board[i][j].face > 0 && board[i][j].face < 10)
+					board[i][j].possibilities.clear();
 			}
 		}
 	}
@@ -67,6 +84,27 @@ public class Board {
 			for(int j = 0; j < 9; j++)
 				if(b.board[i][j] != this.board[i][j])
 					return true;
+		return false;
+	}
+	
+	@Override
+	public boolean equals(Object o){
+		if(this == o)
+			return true;
+		Board b = (Board)o;
+		boolean rez = true;
+		for(int i = 0; i < 9; i++)
+			for(int j = 0; j < 9; j++)
+				if(!b.board[i][j].face.equals(this.board[i][j].face))
+					return false;
+		return rez;
+	}
+	
+	public boolean isThereConflict(){
+		for(int i = 0; i < 9; i++){
+			if(new Row(this, i).isThereConflict() || new Column(this, i).isThereConflict() || new MediumBox(this, i/3, i%3).isThereConflict())
+				return true;
+		}
 		return false;
 	}
 }

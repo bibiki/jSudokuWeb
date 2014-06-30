@@ -1,4 +1,4 @@
-package org.games.sudoku.swingApp;
+package org.games.sudoku.swingApp.models;
 
 import java.util.ArrayList;
 //import javax.swing.*;
