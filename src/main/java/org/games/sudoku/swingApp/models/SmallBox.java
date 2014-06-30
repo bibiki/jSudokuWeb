@@ -1,10 +1,8 @@
 package org.games.sudoku.swingApp.models;
 
 import java.util.ArrayList;
-//import javax.swing.*;
-import java.awt.*;
 
-public class SmallBox extends TextField {
+public class SmallBox {
 	// ajo vlere qe paraqitet si fytyra e qelules
 	public Integer face;
 	public ArrayList<Integer> possibilities = new ArrayList<Integer>();
@@ -30,9 +28,7 @@ public class SmallBox extends TextField {
 	// numrit nga ana e perdoruesit
 	public void setFace(Integer f) {
 		face = f;
-		setText("" + f);
 		possibilities.clear();
-
 	}
 
 	// kjometode ben eliminimin e numrit i nga mundesite e kesaj qelule
