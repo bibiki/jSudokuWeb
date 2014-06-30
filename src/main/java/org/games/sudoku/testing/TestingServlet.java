@@ -30,7 +30,7 @@ public class TestingServlet extends BaseServlet {
 					// build the grid for UI
 					resp.getOutputStream()
 							.print(getInputElement("text", "cell" + i + "" + j, "cell" + i + "" + j, "", new String[] { "" },
-									"width: 25px;" + ((i / 3 == j / 3 || (i / 3 == 0 && j / 3 == 2) || (i / 3 == 2 && j / 3 == 0)) ? "" : "background-color: #72A4D2;")) + " ");
+									"width: 25px;" + ((i/3 + j/3)%2 == 0 ? "" : "background-color: #72A4D2;")) + " ");
 				}
 				resp.getOutputStream().print("<br>");
 			}
