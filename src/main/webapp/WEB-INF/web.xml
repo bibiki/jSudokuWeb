@@ -15,6 +15,23 @@
 		contact Erhun Baycelik
 		and Ngadhnjim Berani.
 	</description>
+	
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:/context.xml</param-value>
+	</context-param>
+	
+	<servlet>
+		<servlet-name>jsudoku</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jsudoku</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 
 	<servlet>
 		<servlet-name>SudokuServlet</servlet-name>
 		<servlet-class>org.games.sudoku.SudokuServlet</servlet-class>
@@ -32,4 +49,5 @@
 		<servlet-name>TestingServlet</servlet-name>
 		<url-pattern>/testing</url-pattern>
 	</servlet-mapping>
-</web-app>
+ 	-->
+ </web-app>
