@@ -53,7 +53,6 @@
 				sudoku algorithm<br> All you get is this text for now pure
 				Java,Spring and Bootstrap UI project.
 			</p>
-			<%-- 			<p>${grid}</p> --%>
 
 			<div id="sudokuGrid" class="table-responsive">
 				<table class="table table-bordered">
