@@ -29,7 +29,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/">Sudoku of the Day</a>
+				<a class="navbar-brand" href="/jSudokuWeb/">Create New Board</a>
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
