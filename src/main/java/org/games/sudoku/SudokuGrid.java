@@ -1,24 +1,35 @@
 package org.games.sudoku;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author muzir
  * 
  */
+@Component
 public class SudokuGrid {
-	public SudokuGrid() {
-		this._initializeTable();
-	}
 
-	public SudokuGrid(SudokuGrid grid) {
-		this._matrix = grid._matrix;
-	}
+	/**
+	 * Initialize sudoku table, fill 81 cell to the matrix
+	 */
+	private void _initializeTable() {
+		staticRow = 0;
+		staticColumn = 0;
+		this._matrix = new Cell[9][9];
+		int i = 0;
+		int j = 0;
+		for (i = 0; i < 9; i++) {
+			for (j = 0; j < 9; j++) {
+				this._matrix[i][j] = new Cell();
+			}// end of inner for loop
+		}// end of outer for loop
+	}// end of initializeTable method
 
 	/**
 	 * Main method to generate the sudoku solution
 	 */
 	public void generateSudoku() {
-		staticRow = 0;
-		staticColumn = 0;
+		_initializeTable();
 		while (staticRow != 9) {
 			if (!this._forward()) {
 				// Clear current domain list
@@ -59,7 +70,7 @@ public class SudokuGrid {
 		Integer currentCellValue = currentCell.getRandomChoice();
 		/*
 		 * Check all choices are finished at currentcell domain list if
-		 * currenctCellValue equal to -1 this means there is no value at cell
+		 * currentCellValue equal to -1 this means there is no value at cell
 		 * domain list, backtracking should be done
 		 */
 		if (currentCellValue == -1) {
@@ -144,47 +155,19 @@ public class SudokuGrid {
 		return Boolean.FALSE;
 	}
 
-	/**
-	 * Initialize sudoku table, fill 81 cell to the matrix
-	 */
-	private void _initializeTable() {
-		this._matrix = new Cell[9][9];
-		int i = 0;
-		int j = 0;
-		for (i = 0; i < 9; i++) {
-			for (j = 0; j < 9; j++) {
-				this._matrix[i][j] = new Cell();
-			}// end of inner for loop
-		}// end of outer for loop
-	}// end of initializeTable method
-
-	/*
-	 * toString method of the SudokuGrid object
-	 * 
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	public String toString() {
-		String strRetVal = "**********************\n*";
+		String strRetVal = "[";
 		int i, j;
 		Cell cell;
-
 		for (i = 0; i < 9; i++) {
 			for (j = 0; j < 9; j++) {
 				cell = this._matrix[i][j];
-				strRetVal = strRetVal + cell.toString() + " ";
-				if (j % 3 == 2) {
-					strRetVal = strRetVal + "*";
-				}
-			}// end of inner for loop
-			if (i % 3 == 2) {
-				strRetVal += "\n**********************";
+				strRetVal = strRetVal + cell.toString() + ",";
 			}
-			strRetVal = strRetVal + "\n*";
-		}// end of outer for loop
-		return strRetVal;
-	}// end of showMaatrix method
+		}
+		strRetVal = strRetVal.substring(0, strRetVal.length() - 1);
+		return strRetVal + "]";
+	}
 
 	public Cell[][] get_matrix() {
 		return _matrix;
@@ -194,21 +177,23 @@ public class SudokuGrid {
 		this._matrix = _matrix;
 	}
 
-	private Cell[][] _matrix;
-	private static int staticRow = 0;
-	private static int staticColumn = 0;
-	
 	@Override
-	public boolean equals(Object sg){
-		if(sg == this) return true;
-		SudokuGrid s = (SudokuGrid)sg;
-		for(int i = 0; i < this._matrix.length; i++){
-			for(int j = 0; j < this._matrix[0].length; j++){
-				if(!this._matrix[i][j].get_value().equals(s.get_matrix()[i][j].get_value())){
+	public boolean equals(Object sg) {
+		if (sg == this)
+			return true;
+		SudokuGrid s = (SudokuGrid) sg;
+		for (int i = 0; i < this._matrix.length; i++) {
+			for (int j = 0; j < this._matrix[0].length; j++) {
+				if (!this._matrix[i][j].get_value().equals(
+						s.get_matrix()[i][j].get_value())) {
 					return false;
 				}
 			}
 		}
 		return true;
 	}
+
+	private Cell[][] _matrix;
+	private static int staticRow = 0;
+	private static int staticColumn = 0;
 }

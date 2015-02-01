@@ -8,7 +8,9 @@ import java.util.Random;
  * @author muzir
  * 
  */
+
 public class Cell {
+
 	public Cell() {
 		this._initializeDomainList();
 	}
@@ -30,7 +32,7 @@ public class Cell {
 	 */
 	public String toString() {
 		String strResult = "";
-		strResult = "" + _value;
+		strResult = "'" + _value+"'";
 		return strResult;
 	}
 
@@ -63,7 +65,7 @@ public class Cell {
 	 */
 	private void _initializeDomainList() {
 		for (int i = 1; i < 10; i++) {
-			this._domainList.add(i);
+			_domainList.add(i);
 		}// end of for loop
 	}
 

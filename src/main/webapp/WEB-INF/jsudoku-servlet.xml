@@ -12,7 +12,8 @@
 
 	<context:annotation-config />
 	<!-- Controllers -->
-	<context:component-scan base-package="org.games.sudoku" />
+	<!-- <context:component-scan base-package="org.games.sudoku" />
+	 --><context:component-scan base-package="org.games.sudoku.config" />
 
 	<!-- Entity Manager Factory -->
 	<bean id="emf"
@@ -47,4 +48,5 @@
 		<property name="generateDdl" value="true" />
 		<property name="databasePlatform" value="org.hibernate.dialect.MYSQL5Dialect"></property>
 	</bean>
+	<bean name="springSecurityConfig" class="org.games.sudoku.config.SpringSecurityConfig"/>
 </beans>
